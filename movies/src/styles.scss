@@ -1,3 +1,12 @@
+@import './assets/sass/application.scss';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 body {
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items:center
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

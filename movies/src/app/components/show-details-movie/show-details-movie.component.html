@@ -1,1 +1,26 @@
-<p>show-details-movie works!</p>
+    <main id="page-details">
+    <section id="container-details" class="container-details">
+        <div id="card-details" *ngIf="detailsMovie" class="card-details">
+            <img  id="img-movie" [src]="BASE_IMG + 'w400/' + detailsMovie.poster_path"/>
+            <section id="information-movie">
+                <h1 id="title-movie">{{detailsMovie.title}}</h1>
+                <h2>launch date : {{detailsMovie.release_date}}</h2>
+                <section class="container-tags">
+                    <div id="container-languages" >
+                        <p id="text-languages" *ngFor="let language of detailsMovie.spoken_languages">{{language.name}}</p>
+                    </div>
+                    <div id="container-genres" >
+                        <p id="text-genres" *ngFor="let genres of detailsMovie.genres">{{genres.name}}</p>
+                    </div>
+                </section>
+                <span id="tagline" >{{detailsMovie.tagline}}</span>
+                <h2  class="title-description">Overview:</h2>
+                <span id="overview" >{{detailsMovie.overview}}</span>
+                <div class="button-back">
+                    <mat-icon (click)="backHome()">keyboard_backspace</mat-icon>
+                </div>
+            </section>
+        </div>
+    </section>
+</main>
+

@@ -1,0 +1,61 @@
+
+
+.container-movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: $width-pages;
+    margin: auto;
+    padding: 15px 0 35px 0;
+    margin-bottom: 40px;
+    @extend %box-shadow-gray;
+
+    #title-movies {
+      margin: 7px;
+      font-size: 16px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .card-movies {
+      width: 225px;
+      height: 390px;
+      margin: 10px 10px 18px 10px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      cursor: pointer;
+      @extend %box-shadow-gray;
+      border-radius: 5px;
+      padding: 5px;
+
+    }
+    .card-movies:hover {
+      @extend %box-shadow-hover-cards;
+      z-index: 9999;
+      transform: scale(1.1);
+      transition: transform 0.5s;
+    }
+    .container-favorites{
+      display: flex;
+      justify-content: center;
+  }
+  .circle-icon-favorites {
+    background-color: $background-toolbar;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .circle-icon-favorites:hover {
+    opacity: 0.8;
+  }
+  .mat-icon {
+    color: $text-white;
+    cursor: pointer;
+  }
+ 
+}

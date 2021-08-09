@@ -1,1 +1,21 @@
-<p>home works!</p>
+<section id="toolbar" class="toolbar">
+  <input (keyUp.enter)="searchMovies()" (input)="handleSearchValue($event)" placeholder="search movie" id="input-search" class="search" />
+  <mat-icon  id="icon-search" (click)="searchMovies()">search</mat-icon>
+  <mat-checkbox class="example-margin" (click)="searchFavorites()">Show favorites</mat-checkbox>
+</section>
+<section *ngIf="tempArrayMovies" class="container-movies">
+  <div
+    *ngFor="let movies of tempArrayMovies.results"
+    id="container-movies"
+    class="card-movies"
+  >
+    <img (click)="showMovieDetails(movies.id)" [src]="BASE_IMG + 'w200/' + movies.poster_path" />
+    <p id="title-movies">{{ movies.title }}</p>
+    <div class="container-favorites">
+      <h3 (click)="showMovieDetails(movies.id)">{{ movies.release_date }}</h3>
+      <div class="circle-icon-favorites">
+        <mat-icon (click)="saveIdMovie(movies.id)">favorite</mat-icon>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,91 @@
+
+
+/* *********************************
+     Variables or extended classes the application
+********************************* */
+
+$width-pages : 80vw;
+
+$background-toolbar: #3f51b5;
+$text-white: white;
+
+%box-shadow-gray {
+  -webkit-box-shadow: -1px 6px 13px -5px rgba(82,78,82,1);
+  -moz-box-shadow: -1px 6px 13px -5px rgba(82,78,82,1);
+  box-shadow: -1px 6px 13px -5px rgba(82,78,82,1);
+}
+
+%box-shadow-white {
+  -webkit-box-shadow: -1px -1px 13px -5px rgba(255,255,255,1);
+  -moz-box-shadow: -1px -1px 13px -5px rgba(255,255,255,1);
+  box-shadow: -1px -1px 13px -5px rgba(255,255,255,1);
+}
+%box-shadow-hover-cards {
+  -webkit-box-shadow: 0px 0px 18px 2px rgba(140,133,140,1);
+  -moz-box-shadow: 0px 0px 18px 2px rgba(140,133,140,1);
+  box-shadow: 0px 0px 18px 2px rgba(140,133,140,1);
+}
+
+/* *********************************
+********************************* */
+
+.toolbar {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: $background-toolbar;
+    color: $text-white;
+    font-weight: 600;
+    width: $width-pages;
+    margin: auto;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    @extend %box-shadow-gray;
+
+    .toolbar img {
+      margin: 0 16px;
+    }
+  
+    .toolbar #twitter-logo {
+      height: 40px;
+      margin: 0 8px;
+    }
+  
+    .toolbar #youtube-logo {
+      height: 40px;
+      margin: 0 16px;
+    }
+  
+    .toolbar #twitter-logo:hover,
+    .toolbar #youtube-logo:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .search {
+    border-style: none;
+    width: 250px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-left: 10px;
+  }
+  .search:focus-visible {
+    outline: none;
+
+
+  }
+  .search:hover {
+    @extend %box-shadow-white;
+  }
+
+  .mat-checkbox-layout {
+    margin-left: 20px;
+}
+  .mat-checkbox-inner-container:hover{
+    @extend %box-shadow-white;
+  }
+  .mat-checkbox-inner-container{
+    outline: 1px solid $text-white;
+  }
+
