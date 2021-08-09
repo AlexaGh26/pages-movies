@@ -27,8 +27,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getRatedMovies();
   }
-
-  getRatedMovies() {
+  /**
+   * This method calls the service getTopRatedMovies
+   */
+  getRatedMovies(): void {
     this.moviesService
       .getTopRatedMovies()
       .subscribe((data: ResponseListMovies) => {
@@ -37,20 +39,36 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  /**
+   * This function shows pages with details movie and send id in query param
+   * @param idMovie
+   */
   showMovieDetails(idMovie: number): void {
     this.router.navigate(['movies/details'], {
       queryParams: { id: idMovie },
     });
   }
+  /**
+   * This function gets the value from the input
+   * @param event input event
+   */
   handleSearchValue(event: any): void {
     this.valueInput = event.target.value;
   }
 
+  /**
+   * This function searchs the movie typed in the input
+   */
   searchMovies(): void {
     this.moviesService.getSearchMovies(this.valueInput).subscribe((data) => {
       this.tempArrayMovies = data;
     });
   }
+
+  /**
+   * This function cleans the tempArrayMovies if checkShowFavorites is true
+   *
+   */
   searchFavorites(): void {
     this.checkShowFavorites = !this.checkShowFavorites;
     this.tempArrayMovies.results = [];
@@ -67,6 +85,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  /**
+   * This function validates if idMovie exists in arrFavorites and add to favorites
+   * @param idMovie
+   *
+   */
   saveIdMovie(idMovie: number): void {
     if (this.arrFavorites.includes(idMovie) && this.checkShowFavorites) {
       this.arrFavorites = this.removeFavorites(idMovie);
@@ -74,8 +97,29 @@ export class HomeComponent implements OnInit {
       this.searchFavorites();
       return;
     }
+    const isFavorite = this.arrFavorites.some((id) => id === idMovie);
+    if (isFavorite) {
+      this.arrFavorites = this.removeFavorites(idMovie);
+      this.checkShowFavorites = false;
+      return;
+    }
+
     this.arrFavorites.push(idMovie);
   }
+  /**
+   * This function validates the favorites icon color
+   * @param idMovie
+   * @returns icon color
+   */
+  validateColor(idMovie: number): string {
+    const isFavorite = this.arrFavorites.some((id) => idMovie === id);
+    return isFavorite ? 'rgb(248, 149, 165)' : '#ffffff';
+  }
+  /**
+   * This function removes the favorites movies if it exists in arrFavorites
+   * @param idMovie
+   * @returns Array without idMovie selected
+   */
   private removeFavorites(idMovie: number) {
     return this.arrFavorites.filter((id: number) => id !== idMovie);
   }

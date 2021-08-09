@@ -28,8 +28,8 @@
       cursor: pointer;
       @extend %box-shadow-gray;
       border-radius: 5px;
-      padding: 5px;
-
+      padding: 2px 5px;
+      position: relative;
     }
     .card-movies:hover {
       @extend %box-shadow-hover-cards;
@@ -39,16 +39,21 @@
     }
     .container-favorites{
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
+    width: 100%;
   }
   .circle-icon-favorites {
     background-color: $background-toolbar;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 8px;
+    right: 23px;
+    z-index: 99999;
   }
   .circle-icon-favorites:hover {
     opacity: 0.8;
@@ -57,5 +62,5 @@
     color: $text-white;
     cursor: pointer;
   }
- 
+  
 }

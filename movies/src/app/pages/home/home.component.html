@@ -11,10 +11,10 @@
   >
     <img (click)="showMovieDetails(movies.id)" [src]="BASE_IMG + 'w200/' + movies.poster_path" />
     <p id="title-movies">{{ movies.title }}</p>
-    <div class="container-favorites">
+    <div class="container-favorites" (click)="saveIdMovie(movies.id)">
       <h3 (click)="showMovieDetails(movies.id)">{{ movies.release_date }}</h3>
-      <div class="circle-icon-favorites">
-        <mat-icon (click)="saveIdMovie(movies.id)">favorite</mat-icon>
+      <div class="circle-icon-favorites" >
+        <mat-icon [style.color]="validateColor(movies.id)" >favorite</mat-icon>
       </div>
     </div>
   </div>
